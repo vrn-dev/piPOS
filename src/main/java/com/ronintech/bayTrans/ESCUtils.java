@@ -149,14 +149,6 @@ public class ESCUtils {
 
     public String setBarcode(String code) {
         String cmd = "";
-        //HRI
-        final byte[] hri = {29, 72, 2};
-        cmd = new String(hri);
-        CS += cmd;
-
-        final byte[] hriChar = {29, 102, 0};
-        cmd = new String(hriChar);
-        CS += cmd;
 
         //Barcode
         byte[] codeVal = code.getBytes();
@@ -167,6 +159,19 @@ public class ESCUtils {
         System.arraycopy(codeVal, 0, barOut, barcodeEAN13.length, codeVal.length);
         cmd = new String(barOut);
         CS += cmd;
+
+        return cmd;
+    }
+
+    public String hri() {
+        String cmd = "";//HRI
+        final byte[] hri = {29, 72, 2};
+        String c = new String(hri);
+        cmd = c;
+
+        final byte[] hriChar = {29, 102, 0};
+        c = new String(hriChar);
+        cmd += c;
 
         return cmd;
     }

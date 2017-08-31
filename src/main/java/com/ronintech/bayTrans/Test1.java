@@ -27,6 +27,7 @@ public class Test1 {
                 .append(u.emphasize(0))
                 .append(u.setCharDims(1))
                 .append(u.lineFeed(2))
+                .append(u.hri())
                 .append(u.setBarcode("1234567890123"))
                 .append(u.lineFeed(2))
                 .append(date)
@@ -44,5 +45,6 @@ public class Test1 {
                 .append(u.cut());
 
         System.out.println(cs.toString());
+        System.exit(0);
     }
 }
